@@ -19,7 +19,7 @@ public class Main {
     }
 
     private static void game(Queue<Integer> pl1, Queue<Integer> pl2) {
-        Queue<Integer> common = new PriorityQueue<Integer>();
+        Queue<Integer> common = new ArrayDeque<Integer>();
         while(!pl1.isEmpty() && !pl2.isEmpty() && count<106){
             if(pl1.peek() > pl2.peek() && pl1.peek() - pl2.peek() != 9 || pl2.peek()-pl1.peek()==9){
                 int n = pl1.peek();
