@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3dd253d-47a3-4d02-8baf-51a74ca3091e" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="6439cc58-8e91-40e4-8f1e-409d0354e508" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,18 +15,14 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1ijxH279sofocjlvtfyNLrCrSvp" />
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="ProjectId" id="1j0He2JqMqnlWdkACp3DqECo95U" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -46,12 +41,24 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b3dd253d-47a3-4d02-8baf-51a74ca3091e" name="Default Changelist" comment="" />
-      <created>1602434712814</created>
+      <changelist id="6439cc58-8e91-40e4-8f1e-409d0354e508" name="Default Changelist" comment="" />
+      <created>1602934180597</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602434712814</updated>
+      <updated>1602934180597</updated>
+      <workItem from="1602934183673" duration="138000" />
+      <workItem from="1602934329150" duration="34000" />
+      <workItem from="1602934386342" duration="2332000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1602936162725">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602936162725" />
   </component>
 </project>

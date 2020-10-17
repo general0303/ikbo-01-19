@@ -3,6 +3,7 @@ package com.company;
 public class MenuItem {
     private int cost;
     private String name;
+    private String description;
 
     public int getCost() {
         return cost;
@@ -15,6 +16,4 @@ public class MenuItem {
     public String getDescription() {
         return description;
     }
-
-    private String description;
 }

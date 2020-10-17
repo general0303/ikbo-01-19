@@ -2,10 +2,10 @@ package com.company;
 
 public interface Order {
     boolean add(MenuItem item);
-    String[] itemNames();
-    int itemQuantity();
+    String[] itemsNames();
+    int itemsQuantity();
     int itemQuantity(String itemName);
-    int itemQuantity(MenuItem item);
+    int itemQuantity(MenuItem itemName);
     MenuItem[] getItems();
     boolean remove(String itemName);
     boolean remove(MenuItem item);
@@ -14,5 +14,5 @@ public interface Order {
     MenuItem[] sortedItemsByCostDesc();
     int costTotal();
     Customer getCustomer();
-    void setCustomer();
+    void setCustomer(Customer customer);
 }

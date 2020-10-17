@@ -1,76 +1,162 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class TableOrder implements Order {
-    private int size;
-    private MenuItem[] items;
+    private int size = 0;
+    private MenuItem[] items = new MenuItem[10];
+    private Customer customer;
+
 
     @Override
     public boolean add(MenuItem item) {
-        return false;
+        try {
+            if (size >= items.length) {
+                MenuItem[] copy = items.clone();
+                items = new MenuItem[size*2];
+                System.arraycopy(copy, 0, items, 0, copy.length);
+            }
+
+            items[size] = item;
+            size++;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return false;
+        }
+
+        return true;
     }
 
     @Override
-    public String[] itemNames() {
-        return new String[0];
+    public String[] itemsNames() {
+        String[] names = new String[items.length];
+
+        for (int i = 0; i < items.length; i++) {
+            names[i] = items[i].getName();
+        }
+
+        return names;
     }
 
     @Override
-    public int itemQuantity() {
-        return 0;
+    public int itemsQuantity() {
+        return size;
     }
 
     @Override
     public int itemQuantity(String itemName) {
-        return 0;
+        int count = 0;
+
+        for (MenuItem item: items) {
+            if (item.getName().equals(itemName)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     @Override
-    public int itemQuantity(MenuItem item) {
-        return 0;
+    public int itemQuantity(MenuItem itemName) {
+        return itemQuantity(itemName.getName());
     }
 
     @Override
     public MenuItem[] getItems() {
-        return new MenuItem[0];
+        return items;
     }
 
     @Override
     public boolean remove(String itemName) {
-        return false;
+        boolean isSuccess = false;
+
+        int index = items.length;
+
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(itemName)) {
+                index = i + 1;
+                items[i] = null;
+                isSuccess = true;
+                break;
+            }
+        }
+
+        for (int i = index; i < items.length - 1; i++) {
+            items[i] = items[i+1];
+        }
+
+        items[items.length - 1] = null;
+
+        return isSuccess;
     }
 
     @Override
     public boolean remove(MenuItem item) {
-        return false;
+        return remove(item.getName());
     }
 
     @Override
     public int removeAll(String itemName) {
-        return 0;
+        int count = 0;
+
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(itemName)) {
+                items[i] = null;
+                count++;
+            }
+        }
+
+        MenuItem[] newItems = new MenuItem[items.length];
+
+        int index = 0;
+
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null) {
+                newItems[index] = items[i];
+                index++;
+            }
+        }
+
+        items = newItems;
+
+        return count;
     }
 
     @Override
     public int removeAll(MenuItem item) {
-        return 0;
+        return removeAll(item.getName());
     }
 
     @Override
     public MenuItem[] sortedItemsByCostDesc() {
-        return new MenuItem[0];
+        Arrays.sort(items, (o1, o2) -> {
+            double diff = o2.getCost() - o1.getCost();
+
+            return diff == 0 ?0 :(int)diff;
+        });
+
+        return items;
     }
 
     @Override
     public int costTotal() {
-        return 0;
+        int total = 0;
+
+        for (MenuItem item: items) {
+            total += item.getCost();
+        }
+
+        return total;
     }
 
     @Override
     public Customer getCustomer() {
-        return null;
+        return customer;
     }
 
     @Override
-    public void setCustomer() {
-
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

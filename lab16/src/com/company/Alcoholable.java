@@ -1,6 +1,6 @@
 package com.company;
 
-public interface Alcoholable {
+public interface AlcoholAble {
     boolean isAlcoholicDrink();
-    double AlcoholVol();
+    double getAlcoholVol();
 }

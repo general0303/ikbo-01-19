@@ -1,12 +1,13 @@
 package com.company;
 
-public class Address{
+public class Address {
     private String cityName;
     private int zipCode;
     private String streetName;
     private int buildingNumber;
     private char buildingLetter;
     private int apartmentNumber;
+    public Address EMPTY_ADDRESS;
 
     public String getCityName() {
         return cityName;
@@ -32,3 +33,4 @@ public class Address{
         return apartmentNumber;
     }
 }
+

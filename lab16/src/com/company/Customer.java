@@ -1,10 +1,12 @@
 package com.company;
 
-public class Customer {
+public final class Customer {
     private String firstName;
     private String secondName;
     private int age;
     private Address address;
+    private static Customer MATURE_UNKNOWN_CUSTOMER;
+    private static Customer NOT_MATURE_UNKNOWN_CUSTOMER;
 
     public String getFirstName() {
         return firstName;

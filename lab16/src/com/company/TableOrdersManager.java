@@ -1,50 +1,113 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class TableOrdersManager implements OrdersManager{
-    private Order[] orders;
+    Order[] orders = new Order[5];
 
-    public void add(Order order, int tableNumber){}
-    public void addItem(MenuItem item, int tableNumber){}
-    public int freeTableNumber(){
-        return 0;
-    }
-    public int[] freeTableNumbers(){
-        return new int[]{0, 1};
-    }
-    public Order getOrder(int tableNumber){
-        return null;
-    }
-    public void remove(int tableNumber){}
-    public int remove(Order order){
-        return 0;
-    }
-    public int removeAll(Order order){
-        return 0;
+    public void add(Order order, int tableNumber) {
+        orders[tableNumber] = order;
     }
 
+    public void addItem(MenuItem item, int tableNumber) {
+        orders[tableNumber].add(item);
+    }
+
+    public int freeTableNumber() {
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i] == null) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int[] freeTableNumbers() {
+        ArrayList<Integer> arrayListNumbers = new ArrayList<>();
+
+        for (int i = 0; i < orders.length; i++) {
+            if (orders[i] == null) {
+                arrayListNumbers.add(i);
+            }
+        }
+
+        int[] arrNumbers = new int[arrayListNumbers.size()];
+
+        for (int i = 0; i < arrNumbers.length; i++) {
+            arrNumbers[i] = arrayListNumbers.get(i);
+        }
+
+        return arrNumbers;
+    }
+
+    public Order getOrder(int tableNumber) {
+        return orders[tableNumber];
+    }
+
+    void remove(int tableNumber) {
+        orders[tableNumber] = null;
+    }
+
+    int remove(Order order) {
+        for (int i = 0; i < orders.length; i++) {
+            if (order == orders[i]) {
+                orders[i] = null;
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    int removeAll(Order order) {
+        int count = 0;
+
+        for (int i = 0; i < orders.length; i++) {
+            if (order == orders[i]) {
+                orders[i] = null;
+                count++;
+            }
+        }
+
+        return count;
+    }
 
     @Override
     public int itemsQuantity(String itemName) {
-        return 0;
+        int count = 0;
+
+        for (Order order: orders) {
+            count += order.itemQuantity(itemName);
+        }
+
+        return count;
     }
 
     @Override
     public int itemsQuantity(MenuItem item) {
-        return 0;
+        return itemsQuantity(item.getName());
     }
 
     @Override
     public Order[] getOrders() {
-        return new Order[0];
+        return orders;
     }
 
     @Override
     public int ordersCostSummary() {
-        return 0;
+        int sum = 0;
+
+        for (Order order: orders) {
+            sum += order.costTotal();
+        }
+
+        return sum;
     }
 
     @Override
     public int ordersQuantity() {
-        return 0;
+        return orders.length;
     }
 }
+
